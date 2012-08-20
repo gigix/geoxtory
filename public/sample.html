@@ -10,12 +10,12 @@
 <script type="text/javascript" src="javascripts/jquery-1.4.2.min.js"></script>
 <script type="text/javascript" src="javascripts/csv.js"></script>
 <script type="text/javascript"
-    src="https://maps.google.com/maps/api/js?sensor=false">
+    src="https://maps.google.com/maps/api/js?language=zh&amp;sensor=false">
 </script>
 <script type="text/javascript">
 function initialize() {
 	var map = createMap();	
-	process("sample_locations.csv", map);
+	process("locations.csv", map);
 }
 
 function createMap() {
@@ -57,7 +57,7 @@ function markLocations(csv, map) {
 			title: location['Name'],
 			html: '<h2><a href="' + location['URL'] + '" target="_blank">' + location['Name'] + '</a></h2><em>' + location['Description'] + '</em><p><img src="' + location['Thumb_URL'] + '" height="160px" /></p>'
 		});
-
+		
 		google.maps.event.addListener(marker, "click", function(){
 			infowindow.setContent(this.html);
 			infowindow.open(map, this);
