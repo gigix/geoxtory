@@ -55,7 +55,7 @@ function markLocations(csv, map) {
 			position: point,
 			map: map,
 			title: location['Name'],
-			html: '<h2><a href="' + location['URL'] + '" target="_blank">' + location['Name'] + '</a></h2><em>' + location['Description'] + '</em><p><img src="' + location['Thumb_URL'] + '" /></p>'
+			html: '<h2><a href="' + location['URL'] + '" target="_blank">' + location['Name'] + '</a></h2><em>' + location['Description'] + '</em><p><img src="' + location['Thumb_URL'] + '" height="160px" /></p>'
 		});
 
 		google.maps.event.addListener(marker, "click", function(){
