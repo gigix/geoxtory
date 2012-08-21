@@ -17,4 +17,5 @@ test:
 
 production:
   adapter: postgresql
-  url: ${ENV[:HEROKU_POSTGRESQL_COLOR_URL]}
+  url: <%= ENV[:HEROKU_POSTGRESQL_COLOR_URL] %>
+  
