@@ -1,0 +1,5 @@
+<%= form_for(@trip, :url => trips_path) do |f| %>
+	<%= f.text_field :name %>
+	<%= f.text_area :description %>
+	<%= f.submit '创建我的地图故事' %>
+<% end %>
