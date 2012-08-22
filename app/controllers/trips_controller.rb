@@ -10,6 +10,7 @@ class TripsController < ApplicationController
   
   def edit
     @trip = Trip.find(params[:id])
+    render :layout => false
   end
   
   def update
