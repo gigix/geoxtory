@@ -93,7 +93,33 @@ google.setOnLoadCallback(initialize);
 			<%= f.submit '更新我的地图故事' %>
 		<% end %>
 	</div>
+	
+	<div id='locations'>
+		<ul>
+			<% @trip.locations.each do |location| %>
+			<li><%= location.name %> ( <%= location.latitude %>, <%= location.longitude %>)</li>
+			<% end %>
+		</ul>
+	</div>
+	
+	<div id='add_location_form'>
+		<%= form_for(@trip, :url => trip_locations_path(@trip), :html => {:method => :post}) do |f| %>
+			<%= f.fields_for :locations do |location_f| %>
+				<%= location_f.text_field :name %>
+				<%= location_f.text_area :description %>
+				<%= location_f.text_field :latitude %>
+				<%= location_f.text_field :longitude %>
+				<%= location_f.text_field :image_url %>
+				<%= location_f.text_field :thumbnail_url %>
+				<%= location_f.submit '添加新地点' %>
+			<% end %>
+		<% end %>
+	</div>
+	
+	<div id='map_search'>
 	  	<div id="resultsCanvas"></div>
-	  	<div id="map_canvas"></div>
+	</div>
+	
+  	<div id="map_canvas"></div>
 </body>
 </html>
