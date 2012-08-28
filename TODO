@@ -1,10 +1,17 @@
 == DONE ==
+Edit a trip
+Plot on an existing trip
 
 
 == DOING ==
-Edit a trip (currently: view of 'edit')
+Show a trip (Current: display view)
 
 
 == TODO ==
-Plot on an existing trip
+Add a trip
+List all trips
+Delete a trip
+UI tidy up: trips show
+UI tidy up: trips admin
+Authentication
 Export a trip to a show-able directory
