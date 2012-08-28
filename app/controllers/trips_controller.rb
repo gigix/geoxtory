@@ -5,6 +5,12 @@ class TripsController < ApplicationController
   
   def show
     @trip = Trip.find(params[:id])
+    render :layout => false
+  end
+  
+  def csv
+    @trip = Trip.find(params[:id])
+    render :text => @trip.to_csv
   end
   
   def create

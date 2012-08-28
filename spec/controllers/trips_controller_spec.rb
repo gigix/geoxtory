@@ -52,5 +52,13 @@ describe TripsController do
       response.should be_success
       assigns[:trip].should == @trip
     end
+  end
+  
+  describe :csv do
+    it "renders csv" do
+      get :csv, :id => @trip.id
+      response.should be_success
+      assigns[:trip].should == @trip
+    end
   end  
 end

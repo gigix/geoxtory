@@ -1,15 +1,16 @@
 == DONE ==
 Edit a trip
 Plot on an existing trip
+Show a trip
 
 
 == DOING ==
-Show a trip (Current: display view)
 
 
 == TODO ==
-Add a trip
+Cleanup and consolidate map javascript
 List all trips
+Reasonable navigations
 Delete a trip
 UI tidy up: trips show
 UI tidy up: trips admin

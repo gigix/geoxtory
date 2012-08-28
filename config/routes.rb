@@ -1,5 +1,8 @@
 Geoxtory::Application.routes.draw do
   resources :trips do
+    member do
+      get :csv
+    end
     resources :locations
   end
   
