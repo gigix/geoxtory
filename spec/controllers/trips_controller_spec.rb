@@ -42,5 +42,5 @@ describe TripsController do
       trip = Trip.find(trip.id)
       trip.name.should == "Test trip"
     end
-  end
+  end  
 end
