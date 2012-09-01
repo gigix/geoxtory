@@ -23,7 +23,7 @@ google.load('maps','3',{other_params:'sensor=false&language=zh'}); // load the m
 
 function initialize() {
 	var map = createMap();	
-	process("locations.csv", map);
+	process("sample_locations.csv", map);
 }
 
 function createMap() {	
@@ -77,6 +77,7 @@ function markLocations(csv, map) {
 			infowindow.open(map, this);
 		});
 	});
+	alert(latlngbounds)
 	map.fitBounds(latlngbounds);	
 }
 

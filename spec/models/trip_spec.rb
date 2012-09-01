@@ -3,8 +3,8 @@ require 'spec_helper'
 describe Trip do
   before(:each) do
     @trip = Trip.create!(:name => "Test trip")
-    location_1 = @trip.locations.create!(:name => "Test location 1")
-    location_2 = @trip.locations.create!(:name => "Test location 2")
+    location_1 = @trip.locations.create!(:name => "Test location 1", :description => %("It's nice!", he said.))
+    location_2 = @trip.locations.create!(:name => "Test location 2", :description => %("It's nice, too!", she said.))
   end
   
   describe :locations do
