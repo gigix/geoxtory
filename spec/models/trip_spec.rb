@@ -24,4 +24,24 @@ describe Trip do
       rows[2].should be_include("Test location 2")
     end
   end
+  
+  describe :load! do
+    it 'loads all locations in given csv' do
+      csv = @trip.to_csv
+      trip = Trip.create!(:name => "new one")
+
+      lambda do
+        trip.load!(csv)
+      end.should change(Location, :count).by(2)
+      
+      trip.locations.first.name.should == "Test location 1"
+    end
+    
+    it 'does not load duplicate locations' do
+      csv = @trip.to_csv
+      lambda do
+        @trip.load!(csv)
+      end.should_not change(Location, :count)
+    end
+  end
 end
