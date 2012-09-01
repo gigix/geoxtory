@@ -54,10 +54,28 @@ header .logo {
 	padding: 0 10px;	
 }
 
-.main #current_location {
-	float: left;
+.main #current_location img {
+	width: 695px;
 }
 
-.main #current_location .big_image {
-	width: 695px;
+.main #description {
+	position: relative;
+	top: -100px;
+	width: 60.2%;
+	height: 100px;
+	margin-left: 39.8%;
+	background-color: black;
+	color: white;
+	opacity: 0.6;
+}
+
+.main #description .caption {
+	position: relative;
+	top: 10px;
+	left: 10px;
+	margin-right: 10px;
+}
+
+.main #description p {
+	margin: 0;
 }

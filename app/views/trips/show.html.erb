@@ -3,12 +3,16 @@
 <head>
 <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 <%= stylesheet_link_tag 'application' %>
-<%= javascript_include_tag :defaults, 'csv.js', 'http://www.google.com/jsapi', 'map_show' %>
+<%= javascript_include_tag :defaults %>
+<%= javascript_include_tag 'jquery.galleriffic.js', 'jquery.opacityrollover.js' %>
+<%= javascript_include_tag 'csv.js', 'http://www.google.com/jsapi', 'map_show', 'map_gallery' %>
 	
 <script type="text/javascript">
 function initialize() {
 	var map = createMap();	
 	populateMap(map, "<%= url_for :controller => 'trips', :action => 'csv', :id => @trip %>");
+	
+	initGallery();
 }
 
 google.setOnLoadCallback(initialize);
@@ -21,15 +25,12 @@ google.setOnLoadCallback(initialize);
 	<div class='main'>
   		<div id="map_canvas"></div>
 		<div id="locations">
-			<ul>
+			<ul class='thumbs noscript'>
 				<%= render partial: 'location', collection: @trip.locations %>
 			</ul>
 		</div>
-		<div id="current_location">
-			<% unless @trip.locations.blank? %>
-			<%= image_tag @trip.locations.first.image_url, :class => 'big_image' %>
-			<% end %>
-		</div>
+		<div id="current_location"></div>
+		<div id='description'></div>
 	</div>
 	<footer>
 	</footer>
