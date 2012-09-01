@@ -2,17 +2,18 @@
 Edit a trip
 Plot on an existing trip
 Show a trip
+Cleanup and consolidate map javascript
 
 
 == DOING ==
+UI tidy up: trips show
 
 
 == TODO ==
-Cleanup and consolidate map javascript
+Less CSS
 List all trips
 Reasonable navigations
 Delete a trip
-UI tidy up: trips show
 UI tidy up: trips admin
 Search trips
 Authentication

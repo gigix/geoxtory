@@ -1,0 +1,63 @@
+html { 
+	height: 100%;
+	background-color: gray;
+}
+
+body { 
+	height: 600px; 
+	width: 1160px;
+	margin: 0px; 
+	padding: 0px;
+	
+	font-size: small;
+}
+
+a, a:hover, a:visited {
+	color: gray;
+	text-decoration: none;
+}
+
+header {
+	height: 70px;
+	background-color: white;
+}
+
+header .logo {
+	width: 120px;
+	margin: 25px 0 0 20%;
+}
+
+.main {
+	height: 465px;
+	background-color: black;
+	padding: 3px;
+}
+
+.main #map_canvas {
+ 	height: 100%;
+ 	width: 30%;
+	float: left;
+}
+
+.main #locations {
+	width: 9.5%;
+	float: left;
+}
+
+.main #locations .thumbnail_image {
+	width: 80px;
+}
+
+.main #locations ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 10px;	
+}
+
+.main #current_location {
+	float: left;
+}
+
+.main #current_location .big_image {
+	width: 695px;
+}
