@@ -25,6 +25,7 @@ google.setOnLoadCallback(initialize);
 	<div class='main'>
   		<div id="map_canvas"></div>
 		<div id="locations">
+			<div id='slide_control'></div>
 			<ul class='thumbs noscript'>
 				<%= render partial: 'location', collection: @trip.locations %>
 			</ul>

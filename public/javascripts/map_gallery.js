@@ -1,21 +1,21 @@
 function initGallery() {
     var gallery = $('#locations').galleriffic({
         delay:                     3000, // in milliseconds
-        numThumbs:                 7, // The number of thumbnails to show page
+        numThumbs:                 5, // The number of thumbnails to show page
         preloadAhead:              40, // Set to -1 to preload all images
-        enableTopPager:            true,
-        enableBottomPager:         true,
+        enableTopPager:            false,
+        enableBottomPager:         false,
         maxPagesToShow:            7,  // The maximum number of pages to display in either the top or bottom pager
         imageContainerSel:         '#current_location', // The CSS selector for the element within which the main slideshow image should be rendered
-        controlsContainerSel:      '', // The CSS selector for the element within which the slideshow controls should be rendered
+        controlsContainerSel:      '#slide_control', // The CSS selector for the element within which the slideshow controls should be rendered
         captionContainerSel:       '#description', // The CSS selector for the element within which the captions should be rendered
         loadingContainerSel:       '', // The CSS selector for the element within which should be shown when an image is loading
         renderSSControls:          true, // Specifies whether the slideshow's Play and Pause links should be rendered
         renderNavControls:         true, // Specifies whether the slideshow's Next and Previous links should be rendered
-        playLinkText:              'Play',
-        pauseLinkText:             'Pause',
-        prevLinkText:              'Previous',
-        nextLinkText:              'Next',
+        playLinkText:              '',
+        pauseLinkText:             '',
+        prevLinkText:              '&nbsp;',
+        nextLinkText:              '&nbsp;',
         nextPageLinkText:          'Next &rsaquo;',
         prevPageLinkText:          '&lsaquo; Prev',
         enableHistory:             false, // Specifies whether the url's hash and the browser's history cache should update

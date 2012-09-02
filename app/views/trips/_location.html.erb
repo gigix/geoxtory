@@ -1,6 +1,7 @@
 <li>
 	<%= link_to(image_tag(location.thumbnail_url, :class => 'thumbnail_image'), 
 			location.image_url, :class => 'thumb', :title => location.name) %>
+	<div class='slide_name'><%= location.name %></div>
 	<div class='caption'>
 		<p class='name'><%= location.name %></p>
 		<p class='description'><%= location.description %></p>

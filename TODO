@@ -3,13 +3,15 @@ Edit a trip
 Plot on an existing trip
 Show a trip
 Cleanup and consolidate map javascript
-
-
-== DOING ==
 UI tidy up: trips show
 
 
+== DOING ==
+
+
 == TODO ==
+Click map markers to navigate
+Customize map: icons, styles
 Less CSS
 List all trips
 Reasonable navigations
