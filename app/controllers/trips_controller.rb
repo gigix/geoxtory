@@ -10,7 +10,14 @@ class TripsController < ApplicationController
   
   def csv
     @trip = Trip.find(params[:id])
-    render :text => @trip.to_csv
+    if(request.post?)
+      uploaded_io = params[:csv]
+      csv_content = uploaded_io.read
+      @trip.load!(csv_content)
+      redirect_to edit_trip_path(@trip)
+    else
+      render :text => @trip.to_csv
+    end
   end
   
   def create

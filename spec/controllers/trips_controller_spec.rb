@@ -55,10 +55,17 @@ describe TripsController do
   end
   
   describe :csv do
-    it "renders csv" do
+    it "renders csv for get request" do
       get :csv, :id => @trip.id
       response.should be_success
       assigns[:trip].should == @trip
     end
-  end  
+    
+    it "loads csv into trip for post request" do
+      lambda do
+        post :csv, :id => @trip.id, :csv => File.open("#{Rails.root}/public/locations.csv")
+      end.should change(Location, :count).by(6)
+      response.should redirect_to(edit_trip_path(@trip))
+    end
+  end    
 end

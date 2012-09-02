@@ -2,6 +2,7 @@ Geoxtory::Application.routes.draw do
   resources :trips do
     member do
       get :csv
+      post :csv
     end
     resources :locations
   end
