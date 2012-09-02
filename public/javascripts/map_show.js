@@ -1,4 +1,4 @@
-google.load('maps','3',{other_params:'sensor=false'}); // load the maps api
+google.load('maps','3',{other_params:'sensor=false&language=zh'}); // load the maps api
 
 function createMap() {	
 	var myLatlng = new google.maps.LatLng(0, 0);
