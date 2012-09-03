@@ -5,13 +5,13 @@ Show a trip
 Cleanup and consolidate map javascript
 UI tidy up: trips show
 Upload CSV
+Click map markers to navigate
 
 
 == DOING ==
 
 
 == TODO ==
-Click map markers to navigate
 Customize map: icons, styles
 Less CSS
 List all trips

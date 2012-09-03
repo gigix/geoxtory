@@ -1,5 +1,5 @@
 function initGallery() {
-    var gallery = $('#locations').galleriffic({
+    $.gallery = $('#locations').galleriffic({
         delay:                     3000, // in milliseconds
         numThumbs:                 5, // The number of thumbnails to show page
         preloadAhead:              40, // Set to -1 to preload all images

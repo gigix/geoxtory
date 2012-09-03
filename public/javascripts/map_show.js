@@ -7,7 +7,18 @@ function createMap() {
 	    center: myLatlng,
 	    mapTypeId: google.maps.MapTypeId.TERRAIN
 	}
-  	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);	
+  	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+
+	var styles = [
+	  {
+		featureType: "all",
+	    stylers: [
+	      { saturation: -100 }
+	    ]
+	  }
+	];
+	map.setOptions({styles: styles});
+		
 	return map;
 }
 
@@ -37,12 +48,10 @@ function markLocations(csv, map) {
 			position: point,
 			map: map,
 			title: location['Name'],
-			html: '<h2><a href="' + location['URL'] + '" target="_blank">' + location['Name'] + '</a></h2><em>' + location['Description'] + '</em><p><img src="' + location['Thumb_URL'] + '" height="160px" /></p>'
 		});
 		
 		google.maps.event.addListener(marker, "click", function(){
-			infowindow.setContent(this.html);
-			infowindow.open(map, this);
+			$.gallery.gotoIndex(index);
 		});
 	});
 	map.fitBounds(latlngbounds);	
