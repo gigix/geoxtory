@@ -50,6 +50,10 @@ function markLocations(csv, map) {
 			title: location['Name'],
 		});
 		
+		var markerImage = new google.maps.MarkerImage('/images/marker.gif');
+		// markerImage.scaledSize = new google.maps.Size(21, 14);
+		marker.setIcon(markerImage);
+		
 		google.maps.event.addListener(marker, "click", function(){
 			$.gallery.gotoIndex(index);
 		});
