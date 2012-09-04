@@ -101,6 +101,32 @@ header .logo {
 	height: 501px;
 }
 
+.main #current_location .nav {
+	position: absolute;
+	top: 270px;
+	width: 40px;
+	height: 40px;
+	background-size: 40px 40px;
+}
+
+.main #current_location .nav.prev {
+	background-image: url('/images/horizontal-prev.gif');
+	left: 560px;
+}
+
+.main #current_location .nav.next {
+	background-image: url('/images/horizontal-next.gif');
+	right: 40px;
+}
+
+.main #current_location .nav.prev:hover {
+	background-image: url('/images/horizontal-prev-light.gif');;
+}
+
+.main #current_location .nav.next:hover {
+	background-image: url('/images/horizontal-next-light.gif');;
+}
+
 .main #description {
 	position: relative;
 	top: -83px;
