@@ -6,13 +6,13 @@ Cleanup and consolidate map javascript
 UI tidy up: trips show
 Upload CSV
 Click map markers to navigate
+Customize map: icons, styles
 
 
 == DOING ==
 
 
 == TODO ==
-Customize map: icons, styles
 Less CSS
 List all trips
 Reasonable navigations

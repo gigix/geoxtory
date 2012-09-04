@@ -40,6 +40,21 @@ header .logo {
 	float: left;
 }
 
+.main #map_canvas .control {
+	width: 36px;
+	height: 36px;
+	margin: 10px 10px 0 0;
+	cursor: pointer;
+}
+
+.main #map_canvas .control.map_button {
+	background-image: url(/images/control_map.gif);
+}
+
+.main #map_canvas .control.satellite_button {
+	background-image: url(/images/control_satellite.gif);
+}
+
 .main #locations {
 	width: 8%;
 	float: left;

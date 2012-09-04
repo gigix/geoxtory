@@ -9,6 +9,10 @@ function createMap() {
 	}
   	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
+	return customized(map);
+}
+
+function customized(map) {
 	var styles = [
 	  {
 		featureType: "all",
@@ -17,9 +21,29 @@ function createMap() {
 	    ]
 	  }
 	];
-	map.setOptions({styles: styles});
-		
+	
+	map.setOptions({
+		panControl: false,
+		mapTypeControl: false,
+		streetViewControl: false,
+		zoomControl: false,
+		styles: styles
+	});
+
+	addControl(map, 'control map_button', function() {
+		map.setOptions({mapTypeId: google.maps.MapTypeId.ROADMAP});
+	});
+	addControl(map, 'control satellite_button', function() {
+		map.setOptions({mapTypeId: google.maps.MapTypeId.HYBRID});
+	});
 	return map;
+}
+
+function addControl(map, className, onclick) {
+	var mapControl = document.createElement('div');
+	mapControl.className = className;
+	map.controls[google.maps.ControlPosition.RIGHT_TOP].push(mapControl);
+	google.maps.event.addDomListener(mapControl, 'click', onclick);
 }
 
 function populateMap(map, csv_file) {
