@@ -8,7 +8,6 @@ function createMap() {
 	    mapTypeId: google.maps.MapTypeId.ROADMAP
 	}
   	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
-
 	return customized(map);
 }
 
@@ -75,7 +74,6 @@ function markLocations(csv, map) {
 		});
 		
 		var markerImage = new google.maps.MarkerImage('/images/marker.gif');
-		// markerImage.scaledSize = new google.maps.Size(21, 14);
 		marker.setIcon(markerImage);
 		
 		google.maps.event.addListener(marker, "click", function(){

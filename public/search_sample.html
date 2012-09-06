@@ -1,0 +1,52 @@
+<!DOCTYPE PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+ <head>
+  <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false&language=zh"></script> 
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script> 
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/themes/base/jquery-ui.css" rel="stylesheet" type="text/css"/>  
+ </head>
+ <body>
+  <h1>Google Maps Autocomplete Search Sample</h1>
+  <div align="left">
+   	<input type="text" value="" id="search_box" style=" width:800px;height:30px; font-size:15px;" />
+	<input type="button" value='Go to ...' id='search_button' />
+  </div>
+  <div align="left" id="map" style="width:800px; height: 600px; margin-top: 10px;">
+   
+  </div>
+  
+ </body>
+</html>
+<script type="text/javascript">
+$(document).ready(function(){
+	var mapOptions = {
+		zoom: 10,
+	    mapTypeId: google.maps.MapTypeId.ROADMAP,
+	    center: new google.maps.LatLng(41.06000,28.98700)
+	};
+
+	var map = new google.maps.Map(document.getElementById("map"),mapOptions);
+	$('#search_button').click(function() { 
+		gotoPlace(map); 
+	});
+});
+
+
+function gotoPlace(map) {
+	var geocoder = new google.maps.Geocoder();
+	geocoder.geocode({'address': $('#search_box').val()}, function(results, status) {
+		if(status != google.maps.GeocoderStatus.OK) {
+			alert('hmm...')
+			return;
+		}
+		$.stored_results = results
+		var latitude = results[0].geometry.location.Xa;
+		var longitude = results[0].geometry.location.Ya;
+		map.setOptions({
+			center: new google.maps.LatLng(latitude, longitude),
+			zoom: 15
+		});
+	});
+}
+</script>
