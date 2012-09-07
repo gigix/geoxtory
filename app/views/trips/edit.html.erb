@@ -48,12 +48,17 @@ function createMap() {
 		var clickedPoint = mouseEvent.latLng;
 		$('#trip_locations_latitude').val(clickedPoint.lat());
 		$('#trip_locations_longitude').val(clickedPoint.lng());
+		
+		if(map.selectionMarker != null) {
+			map.selectionMarker.setMap(null);
+		}
+		
 		map.selectionMarker = new google.maps.Marker({
 			position: clickedPoint,
 			map: map,
-			title: "",
+			title: "当前选中的位置",
 		});
-		var markerImage = new google.maps.MarkerImage('/images/marker.gif');
+		var markerImage = new google.maps.MarkerImage('/images/blue-dot.png');
 		map.selectionMarker.setIcon(markerImage);
 	});
 	
@@ -122,8 +127,8 @@ google.setOnLoadCallback(initialize);
 					<dl>
 						<dt>名称</dt><dl><%= location_f.text_field :name %></dl>
 						<dt>描述</dt><dl><%= location_f.text_area :description %></dl>
-						<dt>纬度</dt><dl><%= location_f.text_field :latitude %></dl>
-						<dt>经度</dt><dl><%= location_f.text_field :longitude %></dl>
+						<dt>纬度</dt><dl><%= location_f.text_field :latitude, :readonly => true %></dl>
+						<dt>经度</dt><dl><%= location_f.text_field :longitude, :readonly => true %></dl>
 						<dt>主要图片链接</dt><dl><%= location_f.text_field :image_url %></dl>
 						<dt>缩略图链接</dt><dl><%= location_f.text_field :thumbnail_url %></dl>
 					</dl>
