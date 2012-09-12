@@ -1,3 +1,7 @@
+@font-face {
+	font-family: Yahei;
+}
+
 html { 
 	height: 100%;
 	background-color: gray;
@@ -164,8 +168,9 @@ header .logo {
 	float: left;
 	width: 20%;
 	color: #F2BC00;
-/*	font-family: "Microsoft Yahei";*/
+	font-family: Hei;
 	font-weight: bold;
+	font-size: 13px;
 	padding: 0 0 0 30px;
 }
 
