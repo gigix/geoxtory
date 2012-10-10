@@ -7,4 +7,4 @@ require 'rake'
 Geoxtory::Application.load_tasks
 
 Rake::Task[:default].prerequisites.clear
-task :default => %w(db:test:prepare spec stats)
+task :default => %w(db:drop db:migrate db:seed spec stats deploy:deployToServer)
