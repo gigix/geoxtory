@@ -6,7 +6,7 @@ html {
 body { 
 	height: 600px; 
 	width: 1280px;
-	margin: 0px; 
+	margin: 0 auto; 
 	padding: 0px;
 	
 	font-size: 12px;
@@ -19,13 +19,12 @@ a, a:hover, a:visited {
 }
 
 header {
-	height: 70px;
+	height: 100px;
 	background-color: white;
 }
 
 header .logo {
-	width: 120px;
-	margin: 25px 0 0 24%;
+	margin: 25px 0 0 14%;
 }
 
 .main {
@@ -119,7 +118,7 @@ header .logo {
 
 .main #current_location .nav {
 	position: absolute;
-	top: 270px;
+	top: 300px;
 	width: 40px;
 	height: 40px;
 	background-size: 40px 40px;
@@ -132,7 +131,7 @@ header .logo {
 
 .main #current_location .nav.next {
 	background-image: url('/images/horizontal-next.gif');
-	right: 40px;
+	left: 1210px;
 }
 
 .main #current_location .nav.prev:hover {
@@ -165,12 +164,17 @@ header .logo {
 	float: left;
 	width: 20%;
 	color: #F2BC00;
-	padding: 10px 0 0 30px;
+	font-family: Hei;
+	font-weight: bold;
+	font-size: 13px;
+	line-height: 150%;
+	padding: 0 0 0 30px;
 }
 
 .main #description .caption .description {
 	float: right;
 	width: 70%;
+	line-height: 150%;
 }
 
 .main #description p {

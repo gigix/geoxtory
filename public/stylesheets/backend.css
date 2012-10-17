@@ -1,0 +1,42 @@
+html { 
+	height: 100%;
+}
+
+body { 
+	width: 1000px;
+	margin: 0 auto; 
+	padding: 0px;
+	
+	font-size: 12px;
+	font-family: arial, sans-serif;
+}
+
+a, a:hover, a:visited {
+	color: gray;
+	text-decoration: none;
+}
+
+header {
+	height: 78px;
+	background-color: white;
+}
+
+header .logo {
+	margin: 5px 0 0 80px;
+}
+
+.main #map_selection {
+	width: 390px;
+	height: 542px;
+	float: left;
+}
+
+.main #map_selection #map_canvas {
+	width: 100%;
+	height: 512px;
+}
+
+.main #user_inputs {
+	width: 528px;
+	float: right;
+}
