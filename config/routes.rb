@@ -1,13 +1,12 @@
 Geoxtory::Application.routes.draw do
-  resources :trips do
+  resources :trips, :only => [:show, :new, :create, :edit, :update] do
     member do
       get :csv
       post :csv
     end
-    resources :locations
+    resources :locations, :only => [:create, :destroy]
   end
-  
-  # The priority is based upon order of creation:
+  # Te priority is based upon order of creation:
   # first created -> highest priority.
 
   # Sample of regular route:

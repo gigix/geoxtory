@@ -1,147 +1,153 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<%= stylesheet_link_tag 'backend' %>
-<%= javascript_include_tag :defaults, 'http://www.google.com.hk/jsapi' %>
-<%= javascript_include_tag  %>
-<script type="text/javascript">
-google.load('maps','3',{other_params:'sensor=false&language=zh'}); // load the maps api
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+  <%= stylesheet_link_tag 'backend' %>
+  <%= javascript_include_tag :defaults, 'http://www.google.com.hk/jsapi' %>
+  <%= javascript_include_tag %>
+  <script type="text/javascript">
+      google.load('maps', '3', {other_params:'sensor=false&language=zh'}); // load the maps api
 
-function initialize() {
-	var map = createMap();	
+      function initialize() {
+          var map = createMap();
 
-	$('#search_button').click(function() { 
-		gotoPlace(map); 
-	});
-}
+          $('#search_button').click(function () {
+              gotoPlace(map);
+          });
+      }
 
-function createMap() {	
-	var myLatlng = new google.maps.LatLng(0, 0);
-	var myOptions = {
-		zoom: 2,
-	    center: myLatlng,
-	    mapTypeId: google.maps.MapTypeId.ROADMAP
-	}
-  	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+      function createMap() {
+          var myLatlng = new google.maps.LatLng(0, 0);
+          var myOptions = {
+              zoom:2,
+              center:myLatlng,
+              mapTypeId:google.maps.MapTypeId.ROADMAP
+          }
+          var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 
-	google.maps.event.addListener(map, "click", function(mouseEvent){
-		var clickedPoint = mouseEvent.latLng;
-		$('#trip_locations_latitude').val(clickedPoint.lat());
-		$('#trip_locations_longitude').val(clickedPoint.lng());
-		
-		if(map.selectionMarker != null) {
-			map.selectionMarker.setMap(null);
-		}
-		
-		map.selectionMarker = new google.maps.Marker({
-			position: clickedPoint,
-			map: map,
-			title: "当前选中的位置",
-		});
-		var markerImage = new google.maps.MarkerImage('/images/marker.gif');
-		map.selectionMarker.setIcon(markerImage);
-	});
-	
-	return map;
-}
+          google.maps.event.addListener(map, "click", function (mouseEvent) {
+              var clickedPoint = mouseEvent.latLng;
+              $('#trip_locations_latitude').val(clickedPoint.lat());
+              $('#trip_locations_longitude').val(clickedPoint.lng());
 
-function gotoPlace(map) {
-	var geocoder = new google.maps.Geocoder();
-	geocoder.geocode({'address': $('#search_box').val()}, function(results, status) {
-		if(status != google.maps.GeocoderStatus.OK) {
-			alert('对不起，没有找到您搜索的地名。')
-			return;
-		}
-		$.stored_results = results
-		var latitude = results[0].geometry.location.Xa;
-		var longitude = results[0].geometry.location.Ya;
-		var resultPoint = new google.maps.LatLng(latitude, longitude);
-		map.setOptions({
-			center: resultPoint,
-			zoom: 15
-		});
-		
-		var marker = new google.maps.Marker({
-			position: resultPoint,
-			map: map,
-			title: results[0].formatted_address,
-		});
-	});
-}
+              if (map.selectionMarker != null) {
+                  map.selectionMarker.setMap(null);
+              }
 
-google.setOnLoadCallback(initialize);
-</script>
+              map.selectionMarker = new google.maps.Marker({
+                  position:clickedPoint,
+                  map:map,
+                  title:"当前选中的位置",
+              });
+              var markerImage = new google.maps.MarkerImage('/images/marker.gif');
+              map.selectionMarker.setIcon(markerImage);
+          });
+
+          return map;
+      }
+
+      function gotoPlace(map) {
+          var geocoder = new google.maps.Geocoder();
+          geocoder.geocode({'address':$('#search_box').val()}, function (results, status) {
+              if (status != google.maps.GeocoderStatus.OK) {
+                  alert('对不起，没有找到您搜索的地名。')
+                  return;
+              }
+              $.stored_results = results
+              var latitude = results[0].geometry.location.Xa;
+              var longitude = results[0].geometry.location.Ya;
+              var resultPoint = new google.maps.LatLng(latitude, longitude);
+              map.setOptions({
+                  center:resultPoint,
+                  zoom:15
+              });
+
+              var marker = new google.maps.Marker({
+                  position:resultPoint,
+                  map:map,
+                  title:results[0].formatted_address,
+              });
+          });
+      }
+
+      google.setOnLoadCallback(initialize);
+  </script>
 </head>
 <body>
-	<header>
-		<%= image_tag 'logo.gif', :class => 'logo' %>
-	</header>
-	
-	<div class='main'>
-		<div id='map_selection'>
-		  	<div align="left">
-		   		<input type="text" value="" id="search_box" />
-				<input type="button" value='Go to ...' id='search_button' />
-		  	</div>
-		  	<div id="map_canvas"></div>
-		</div>
-		
-		<div id='user_inputs'>
-			<div id='edit_form' class='form_section'>
-				<h2>关于我的故事</h2>
-				<%= form_for(@trip, :url => trip_path(@trip), :html => {:method => :put}) do |f| %>
-					<dl>
-						<dt>故事的名字</dt>
-						<dd><%= f.text_field :name %></dd>
-						<dt>详细描述</dt>
-						<dd><%= f.text_area :description %></dd>
-					</dl>
-					<%= f.submit '更新我的地图故事' %>
-				<% end %>
-			</div>
+<header>
+  <%= image_tag 'logo.gif', :class => 'logo' %>
+</header>
 
-			<div id='locations' class='form_section'>
-				<h2>这个故事包含以下地点：</h2>
-				<ul>
-					<% @trip.locations.each do |location| %>
-					<li>
-						<%= location.name %> ( <%= location.latitude %>, <%= location.longitude %>)
-						&nbsp;&nbsp;
-						<%= button_to "删除", trip_location_path(@trip, location), :confirm => "确定删除这个地点吗？", :method => :delete %>
-					</li>
-					<% end %>
-				</ul>
-			</div>
+<div class='main'>
+  <div id='map_selection'>
+    <div align="left">
+      <input type="text" value="" id="search_box"/>
+      <input type="button" value='Go to ...' id='search_button'/>
+    </div>
+    <div id="map_canvas"></div>
+  </div>
 
-			<div id='add_location_form' class='form_section'>
-				<h2>增加新地点</h2>
-				<%= form_for(@trip, :url => trip_locations_path(@trip), :html => {:method => :post}) do |f| %>
-					<%= f.fields_for :locations do |location_f| %>
-						<dl>
-							<dt>名称</dt><dl><%= location_f.text_field :name %></dl>
-							<dt>描述</dt><dl><%= location_f.text_area :description %></dl>
-							<dt>纬度</dt><dl><%= location_f.text_field :latitude, :readonly => true %></dl>
-							<dt>经度</dt><dl><%= location_f.text_field :longitude, :readonly => true %></dl>
-							<dt>主要图片链接</dt><dl><%= location_f.text_field :image_url %></dl>
-							<dt>缩略图链接</dt><dl><%= location_f.text_field :thumbnail_url %></dl>
-						</dl>
-						<%= location_f.submit '添加新地点' %>
-					<% end %>
-				<% end %>
-			</div>
-	
-			<div id='upload_form'>
-				<h2>上传CSV文件</h2>
-				<%= form_tag({controller: :trips, action: :csv}, multipart: true) do %>
-				  	<%= file_field_tag 'csv' %>
-					<%= submit_tag '上传' %>
-				<% end %>
-			</div>	
-		</div>
-	</div>
-	
-	<footer>
-	</footer>
+  <div id='user_inputs'>
+    <div id='edit_form' class='form_section'>
+      <h2>关于我的故事</h2>
+      <%= form_for(@trip, :url => trip_path(@trip), :html => {:method => :put}) do |f| %>
+          <dl>
+            <dt>故事的名字</dt>
+            <dd><%= f.text_field :name %></dd>
+            <dt>详细描述</dt>
+            <dd><%= f.text_area :description %></dd>
+          </dl>
+          <%= f.submit '更新我的地图故事' %>
+      <% end %>
+    </div>
+
+    <div id='locations' class='form_section'>
+      <h2>这个故事包含以下地点：</h2>
+      <ul>
+        <% @trip.locations.each do |location| %>
+            <li>
+              <%= location.name %> ( <%= location.latitude %>, <%= location.longitude %>)
+              &nbsp;&nbsp;
+              <%= button_to "删除", trip_location_path(@trip, location), :confirm => "确定删除这个地点吗？", :method => :delete %>
+            </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <div id='add_location_form' class='form_section'>
+      <h2>增加新地点</h2>
+      <%= form_for(@trip, :url => trip_locations_path(@trip), :html => {:method => :post}) do |f| %>
+          <%= f.fields_for :locations do |location_f| %>
+              <dl>
+                <dt>名称</dt>
+                <dl><%= location_f.text_field :name %></dl>
+                <dt>描述</dt>
+                <dl><%= location_f.text_area :description %></dl>
+                <dt>纬度</dt>
+                <dl><%= location_f.text_field :latitude, :readonly => true %></dl>
+                <dt>经度</dt>
+                <dl><%= location_f.text_field :longitude, :readonly => true %></dl>
+                <dt>主要图片链接</dt>
+                <dl><%= location_f.text_field :image_url %></dl>
+                <dt>缩略图链接</dt>
+                <dl><%= location_f.text_field :thumbnail_url %></dl>
+              </dl>
+              <%= location_f.submit '添加新地点' %>
+          <% end %>
+      <% end %>
+    </div>
+
+    <div id='upload_form'>
+      <h2>上传CSV文件</h2>
+      <%= form_tag({controller: :trips, action: :csv}, multipart: true) do %>
+      <%= file_field_tag 'csv' %>
+      <%= submit_tag '上传' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<footer>
+</footer>
 </body>
 </html>

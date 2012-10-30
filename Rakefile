@@ -4,4 +4,4 @@
 require File.expand_path('../config/application', __FILE__)
 Geoxtory::Application.load_tasks
 Rake::Task[:default].prerequisites.clear
-task :default => %w(db:drop db:migrate db:seed analyzer:flay analyzer:rails_best_practices spec stats)
+task :default => %w(db:drop db:migrate db:seed analyzer:flay spec stats)

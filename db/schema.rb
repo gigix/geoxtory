@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(:version => 20120821024232) do
     t.datetime "updated_at"
   end
 
+  add_index "locations", ["trip_id"], :name => "index_locations_on_trip_id"
+
   create_table "trips", :force => true do |t|
     t.string   "name"
     t.string   "description"
