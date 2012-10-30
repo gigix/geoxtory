@@ -1,44 +1,44 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
-<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
-<title>GeoXtory | <%= @trip.name %></title>
-<%= stylesheet_link_tag 'application' %>
-<%= javascript_include_tag :defaults %>
-<%= javascript_include_tag 'jquery.galleriffic.js', 'jquery.opacityrollover.js' %>
-<%= javascript_include_tag 'csv.js', 'http://www.google.com.hk/jsapi', 'map_show', 'map_gallery' %>
-	
-<script type="text/javascript">
-function initialize() {
-	var map = createMap();	
-	populateMap(map, "<%= url_for :controller => 'trips', :action => 'csv', :id => @trip %>");
-	
-	initGallery();
-}
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no"/>
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+  <title>GeoXtory | <%= @trip.name %></title>
+  <%= stylesheet_link_tag 'application' %>
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'jquery.galleriffic.js', 'jquery.opacityrollover.js' %>
+  <%= javascript_include_tag 'csv.js', 'http://www.google.com.hk/jsapi', 'map_show', 'map_gallery' %>
 
-google.setOnLoadCallback(initialize);
-</script>
+  <script type="text/javascript">
+      function initialize() {
+          var map = createMap();
+          populateMap(map, "<%= url_for :controller => 'trips', :action => 'csv', :id => @trip %>");
+
+          initGallery();
+      }
+
+      google.setOnLoadCallback(initialize);
+  </script>
 </head>
 <body>
-	<header>
-		<%= image_tag 'logo.gif', :class => 'logo' %>
-	</header>
-	<div class='main'>
-  		<div id="map_canvas"></div>
-		<div id="locations">
-			<div id='slide_control'></div>
-			<ul class='thumbs noscript'>
-				<%= render partial: 'location', collection: @trip.locations %>
-			</ul>
-		</div>
-		<div id="current_location">
-			<a href='#' class='nav prev' onclick='$.gallery.previous(); return false;'>&nbsp;</a>
-			<a href='#' class='nav next' onclick='$.gallery.next(); return false;'>&nbsp;</a>
-		</div>
-		<div id='description'></div>
-	</div>
-	<footer>
-	</footer>
+<header>
+  <%= image_tag 'logo.gif', :class => 'logo' %>
+</header>
+<div class='main'>
+  <div id="map_canvas"></div>
+  <div id="locations">
+    <div id='slide_control'></div>
+    <ul class='thumbs noscript'>
+      <%= render @trip.locations %>
+    </ul>
+  </div>
+  <div id="current_location">
+    <a href='#' class='nav prev' onclick='$.gallery.previous(); return false;'>&nbsp;</a>
+    <a href='#' class='nav next' onclick='$.gallery.next(); return false;'>&nbsp;</a>
+  </div>
+  <div id='description'></div>
+</div>
+<footer>
+</footer>
 </body>
 </html>
