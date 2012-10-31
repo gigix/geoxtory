@@ -2,7 +2,7 @@ require 'csv'
 
 class Trip < ActiveRecord::Base
   has_many :locations
-
+  attr_accessible :name, :description
   def to_csv
     result = "Name,Description,Icon_color,Long,Lat,URL,Thumb_URL\n"
     result << locations.map(&:to_csv).join("\n")
