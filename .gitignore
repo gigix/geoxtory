@@ -4,3 +4,4 @@ log/*.log
 tmp/**/*
 analyzer/rails_best_practices.html
 .DS_Store
+.idea/
