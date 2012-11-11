@@ -7,8 +7,20 @@
   <%= stylesheet_link_tag 'application' %>
 
 </head>
+<body>
+<header>
+  <%= image_tag 'logo.gif', :class => 'logo' %>
+</header>
+<div class="main">
+  <ul>
+    <%= render @trip.locations %>
+  </ul>
+</div>
 <h1>GeoXtory</h1>
 
-
 <p>GeoXtory</p>
+
+</body>
+
+
 </html>
