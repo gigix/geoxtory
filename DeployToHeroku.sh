@@ -9,7 +9,7 @@ echo "reset heroku database"
 heroku pg:reset DATABASE --confirm geoxtorydev
 
 echo "migrate heroku database"
-heroku run rake db:migrate
+heroku run rake db:migrate --app geoxtorydev
 
 echo "insert seed data to heroku database"
-heroku run rake db:seed
+heroku run rake db:seed --app geoxtorydev
