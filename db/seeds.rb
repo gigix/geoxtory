@@ -11,15 +11,26 @@
 
 puts "creating seed data......"
 
-location1 = Location.create(:name => "somewhere in chengdu",
-                            :description => "logo of rails",
-                            :latitude => "30.657419659093495",
-                            :longitude => "104.06695885186764",
-                            :image_url => "http://www.kuqin.com/upimg/topic/Rails.png",
-                            :thumbnail_url => "http://www.kuqin.com/upimg/topic/Rails.png")
-
-trip1 = Trip.create(:name => "item1",
-                    :description => "test trip1",
-                    :locations => [location1])
+locations = Location.create({:name => "chengdu1",
+                             :description => "logo of rails",
+                             :latitude => "30.657419659093495",
+                             :longitude => "104.06695885186764",
+                             :image_url => "http://img3.douban.com/lpic/s9102133.jpg",
+                             :thumbnail_url => "http://img3.douban.com/lpic/s9102133.jpg"},
+                            {:name => "chengdu2",
+                             :description => "logo of rails",
+                             :latitude => "30.657419659093495",
+                             :longitude => "104.06695885186764",
+                             :image_url => "http://img3.douban.com/lpic/s9102133.jpg",
+                             :thumbnail_url => "http://img3.douban.com/lpic/s9102133.jpg"},
+                            {:name => "chengdu3",
+                             :description => "logo of rails",
+                             :latitude => "30.657419659093495",
+                             :longitude => "104.06695885186764",
+                             :image_url => "http://img3.douban.com/lpic/s9102133.jpg",
+                             :thumbnail_url => "http://img3.douban.com/lpic/s9102133.jpg"})
+                            trip1 = Trip.create(:name => "item1",
+                                                :description => "test trip1",
+                                                :locations => [locations])
 
 puts "seed data created."
