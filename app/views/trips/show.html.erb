@@ -16,7 +16,6 @@
 
           initGallery();
       }
-
       google.setOnLoadCallback(initialize);
   </script>
 </head>
@@ -29,7 +28,7 @@
   <div id="locations">
     <div id='slide_control'></div>
     <ul class='thumbs noscript'>
-      <%= render @trip.locations %>
+          <%= render partial: 'location', collection: @trip.locations %>
     </ul>
   </div>
   <div id="current_location">
@@ -38,7 +37,7 @@
   </div>
   <div id='description'></div>
 </div>
-  <%= render :file => "include/sharing" %>
+<%= render :file => "include/sharing" %>
 <footer>
 </footer>
 </body>
