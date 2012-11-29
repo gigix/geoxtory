@@ -5,18 +5,19 @@
   <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
   <title>GeoXtory</title>
   <%= stylesheet_link_tag 'application' %>
-
 </head>
 <body>
 <header>
   <%= image_tag 'logo.gif', :class => 'logo' %>
 </header>
-<div>
-  <ul>
-    <%= @trips[0].locations[0].name %>
-  </ul>
+<div class="container">
+  <div class="content">
+    <div class="showcase span6">x
+      <ul>
+        <%= render @locations %>
+      </ul>
+    </div>
+  </div>
 </div>
 </body>
-
-
 </html>
