@@ -191,8 +191,8 @@ div.content div.showcase {
 }
 div.content div.showcase ul {
     overflow: hidden;
-    width: 440px;
-    padding: 50px; margin: 0;
+    width: 800px;
+    padding: 10px; margin: 0;
     list-style: none;
 }
 div.content div.showcase ul li {
@@ -207,19 +207,19 @@ div.content div.showcase ul li {
     -webkit-transform: rotate(15deg);
 }
 div.content div.showcase ul li.head2 {
-    transform: rotate(-20deg);
-    -moz-transform: rotate(-20deg);
-    -webkit-transform: rotate(-20deg);
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
 }
 div.content div.showcase ul li.head3 {
-    transform: rotate(-10deg);
-    -moz-transform: rotate(-10deg);
-    -webkit-transform: rotate(-10deg);
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
 }
 div.content div.showcase ul li.head4 {
-    transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -webkit-transform: rotate(3deg);
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
 }
 div.content div.showcase ul li div {
     border-radius: 2px;
@@ -227,9 +227,9 @@ div.content div.showcase ul li div {
 }
 div.content div.showcase ul li img {
     position: relative;
-    z-index: -2;
+  /*/  z-index: -2;*/
     display: block;
-    width: 130px; height: 130px;
+    width: 200px; height: 200px;
     box-shadow: inset 3px 4px 20px #000;
 }
 div.content div.showcase ul li p {

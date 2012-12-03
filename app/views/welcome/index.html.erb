@@ -12,9 +12,19 @@
 </header>
 <div class="container">
   <div class="content">
-    <div class="showcase span6">x
+    <div class="showcase span6">
       <ul>
-        <%= render @locations %>
+        <% flag=0 %>
+        <% @locations.count.times do %>
+            <% location = @locations[flag] %>
+            <li class="head<%= flag %>">
+              <div><%= location.name %></div>
+              <%= link_to(image_tag(location.thumbnail_url, :class => 'thumbnail_image'),
+                          location.image_url, :title => location.name) %>
+              <p class='name'><%= location.name %></p>
+            </li>
+        <% flag+=1 %>
+        <% end %>
       </ul>
     </div>
   </div>
