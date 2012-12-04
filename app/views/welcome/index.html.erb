@@ -24,7 +24,6 @@
         <% 3.times do %>
             <% location = @trip.locations[flag] %>
             <li class="head<%= flag %>">
-              <div><%= location.name %></div>
               <%= link_to(image_tag(location.thumbnail_url, :class => 'thumbnail_image'),
                           location.image_url, :title => location.name) %>
               <p class='name'><%= location.name %></p>
