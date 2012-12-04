@@ -1,184 +1,184 @@
-html { 
-	height: 100%;
-	background-color: gray;
+html {
+    height: 100%;
+    background-color: #ffffff;
 }
 
-body { 
-	height: 600px; 
-	width: 1280px;
-	margin: 0 auto; 
-	padding: 0px;
-	
-	font-size: 12px;
-	font-family: arial, sans-serif;
+body {
+    height: 600px;
+    width: 1280px;
+    margin: 0 auto;
+    padding: 0px;
+
+    font-size: 12px;
+    font-family: arial, sans-serif;
 }
 
 a, a:hover, a:visited {
-	color: gray;
-	text-decoration: none;
+    color: gray;
+    text-decoration: none;
 }
 
 header {
-	height: 100px;
-	background-color: white;
+    height: 100px;
+    background-color: white;
 }
 
 header .logo {
-	margin: 25px 0 0 14%;
+    margin: 25px 0 0 14%;
 }
 
 .main {
-	height: 500px;
-	background-color: black;
-	padding: 3px 0 1px 0;
+    height: 500px;
+    background-color: black;
+    padding: 3px 0 1px 0;
 }
 
 .main #map_canvas {
- 	height: 100%;
- 	width: 33%;
-	float: left;
+    height: 100%;
+    width: 33%;
+    float: left;
 }
 
 .main #map_canvas .control {
-	width: 30px;
-	height: 30px;
-	background-size: 30px 30px;
-	margin: 10px 10px 0 0;
-	cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-size: 30px 30px;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
 }
 
 .main #map_canvas .control.map_button {
-	background-image: url(/images/control_map.gif);
+    background-image: url(/images/control_map.gif);
 }
 
 .main #map_canvas .control.satellite_button {
-	background-image: url(/images/control_satellite.gif);
+    background-image: url(/images/control_satellite.gif);
 }
 
 .main #locations {
-	width: 8%;
-	float: left;
+    width: 8%;
+    float: left;
 }
 
 .main #locations .thumbnail_image {
-	width: 81px;
+    width: 81px;
 }
 
 .main #locations {
-	text-align: center;
+    text-align: center;
 }
 
 .main #locations .nav-controls {
-	margin-top: 10px;
+    margin-top: 10px;
 }
 
 .main #locations .prev {
-	position: relative;
-	left: 15px;
-	padding: 0px 12px;
-	background-image: url(/images/prev.gif);
+    position: relative;
+    left: 15px;
+    padding: 0px 12px;
+    background-image: url(/images/prev.gif);
 }
 
 .main #locations .next {
-	position: relative;
-	top: 455px;
-	left: -10px;
-	padding: 0px 12px;
-	background-image: url(/images/next.gif);
+    position: relative;
+    top: 455px;
+    left: -10px;
+    padding: 0px 12px;
+    background-image: url(/images/next.gif);
 }
 
 .main #locations ul {
-	list-style: none;
-	margin: 10px 0 0 0;
-	padding: 0 10px;	
+    list-style: none;
+    margin: 10px 0 0 0;
+    padding: 0 10px;
 }
 
 .main #locations ul li {
-	color: gray;
-	padding: 1px;
-	margin-bottom: 10px;
+    color: gray;
+    padding: 1px;
+    margin-bottom: 10px;
 }
 
 .main #locations ul li.selected {
-	background-color: #F2BC00;
-	color: black;
+    background-color: #F2BC00;
+    color: black;
 }
 
 .main #locations ul li .slide_name {
-	height: 15px;
-	overflow: hidden;
-	text-align: left;
-	margin: 0 0 0px 3px;
+    height: 15px;
+    overflow: hidden;
+    text-align: left;
+    margin: 0 0 0px 3px;
 }
 
 .main #current_location img {
-	width: 752px;
-	height: 501px;
+    width: 752px;
+    height: 501px;
 }
 
 .main #current_location .nav {
-	position: absolute;
-	top: 300px;
-	width: 40px;
-	height: 40px;
-	background-size: 40px 40px;
+    position: absolute;
+    top: 300px;
+    width: 40px;
+    height: 40px;
+    background-size: 40px 40px;
 }
 
 .main #current_location .nav.prev {
-	background-image: url('/images/horizontal-prev.gif');
-	left: 560px;
+    background-image: url('/images/horizontal-prev.gif');
+    left: 560px;
 }
 
 .main #current_location .nav.next {
-	background-image: url('/images/horizontal-next.gif');
-	left: 1210px;
+    background-image: url('/images/horizontal-next.gif');
+    left: 1210px;
 }
 
 .main #current_location .nav.prev:hover {
-	background-image: url('/images/horizontal-prev-light.gif');;
+    background-image: url('/images/horizontal-prev-light.gif');;
 }
 
 .main #current_location .nav.next:hover {
-	background-image: url('/images/horizontal-next-light.gif');;
+    background-image: url('/images/horizontal-next-light.gif');;
 }
 
 .main #description {
-	position: relative;
-	top: -83px;
-	width: 59%;
-	height: 80px;
-	margin-left: 41%;
-	background-color: black;
-	color: white;
-	opacity: 0.8;
+    position: relative;
+    top: -83px;
+    width: 59%;
+    height: 80px;
+    margin-left: 41%;
+    background-color: black;
+    color: white;
+    opacity: 0.8;
 }
 
 .main #description .caption {
-	position: relative;
-	top: 10px;
-	left: 10px;
-	margin-right: 10px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    margin-right: 10px;
 }
 
 .main #description .caption .name {
-	float: left;
-	width: 20%;
-	color: #F2BC00;
-	font-family: Hei;
-	font-weight: bold;
-	font-size: 13px;
-	line-height: 150%;
-	padding: 0 0 0 30px;
+    float: left;
+    width: 20%;
+    color: #F2BC00;
+    font-family: Hei;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 150%;
+    padding: 0 0 0 30px;
 }
 
 .main #description .caption .description {
-	float: right;
-	width: 70%;
-	line-height: 150%;
+    float: right;
+    width: 70%;
+    line-height: 150%;
 }
 
 .main #description p {
-	margin: 0;
+    margin: 0;
 }
 
 .pictures ul li img {
@@ -186,15 +186,16 @@ header .logo {
     height: 300px;
 }
 
-
 div.content div.showcase {
 }
+
 div.content div.showcase ul {
     overflow: hidden;
-    width: 800px;
-    padding: 10px; margin: 0;
+    padding: 10px;
+    margin: 0;
     list-style: none;
 }
+
 div.content div.showcase ul li {
     float: left;
     display: block;
@@ -202,40 +203,98 @@ div.content div.showcase ul li {
     background: #FFF;
     border-radius: 2px;
     box-shadow: 0px 2px 10px #000;
-    transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    -webkit-transform: rotate(15deg);
-}
-div.content div.showcase ul li.head2 {
     transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
 }
+
+div.content div.showcase ul li.head0 {
+    margin-left: 20px;
+    margin-top: 50px;
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}div.content div.showcase ul li.head1 {
+     margin-top: 200px;
+     margin-left: 50px;
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}div.content div.showcase ul li.head2 {
+    margin-left: 50px;
+    transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+}
+
 div.content div.showcase ul li.head3 {
+
     transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
 }
+
 div.content div.showcase ul li.head4 {
     transform: rotate(0deg);
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
 }
+
 div.content div.showcase ul li div {
     border-radius: 2px;
     box-shadow: inset 0 0 5px #000;
 }
+
 div.content div.showcase ul li img {
     position: relative;
-  /*/  z-index: -2;*/
+    /*/  z-index: -2;*/
     display: block;
-    width: 200px; height: 200px;
+    width: 200px;
+    height: 200px;
     box-shadow: inset 3px 4px 20px #000;
 }
+
+div.content div.showcase ul li.head0 img {
+    width: 400px;
+    height: 400px;
+}
+
+div.content div.showcase ul li.head1 img {
+    width: 300px;
+    height: 300px;
+}
+
+div.content div.showcase ul li.head2 img {
+    width: 200px;
+    height: 250px;
+}
+
+div.content div.showcase ul li.head3 img {
+    width: 300px;
+    height: 300px;
+}
+
+div.content div.showcase ul li.head4 img {
+    width: 280px;
+    height: 280px;
+}
+
 div.content div.showcase ul li p {
     margin-top: 15px;
-    font-family: "Patrick Hand", cursive;
+    font-family: "Times New Roman", cursive;
     font-size: 15px;
     color: #444;
     text-align: center;
+}
+
+#tripName {
+    background-color: yellow;
+    font-family: "Times New Roman";
+    font-size: 20px;
+    padding: 10px;
+}
+
+#tripDetails {
+    margin-top: 20px;
+    padding: 10px;
 }

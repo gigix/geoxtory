@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
   def index
-    @locations = Location.find(:all)
+    @trip = Trip.first
   end
 
   def new

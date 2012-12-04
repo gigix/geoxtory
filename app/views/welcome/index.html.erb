@@ -14,9 +14,15 @@
   <div class="content">
     <div class="showcase span6">
       <ul>
+        <li>
+            <div class="tripDescription">
+              <div id="tripName"><%= @trip.name %></div>
+              <div id="tripDetails"><%= @trip.description %></div>
+            </div>
+        </li>
         <% flag=0 %>
-        <% @locations.count.times do %>
-            <% location = @locations[flag] %>
+        <% 3.times do %>
+            <% location = @trip.locations[flag] %>
             <li class="head<%= flag %>">
               <div><%= location.name %></div>
               <%= link_to(image_tag(location.thumbnail_url, :class => 'thumbnail_image'),
